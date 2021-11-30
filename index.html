@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,90 @@
   <link rel="stylesheet" href="css/styles.css">
   <title>PFC calculator</title>
 </head>
-<body>
-  <main id = "calc">
 
+<body>
+  <main id="calc">
+    <header>
+      <h1>PFC Claculator</h1>
+    </header>
+    <div class="scroller_section">
+      <div>
+        <div>
+          <p>Gender:</p>
+          <p>Male</p>
+        </div>
+        <input type="range" min="0" max="1" step="1" value="0">
+      </div>
+      <div>
+        <div>
+          <p>Physical activity:</p>
+          <p>None</p>
+        </div>
+        <input type="range" min="0" max="4" step="1" value="0">
+      </div>
+      <div>
+        <div>
+          <p>Goal:</p>
+          <p>Keep shape</p>
+        </div>
+        <input type="range" min="0" max="4" step="1" value="2">
+      </div>
+    </div>
+    <div class="number_section">
+      <div>
+        <p>Age:</p>
+        <div>
+          <button type="button">+</button>
+          <input type="number" min="15" max="80" value="20">
+          <button type="button">-</button>
+        </div>
+        <p>y. o.</p>
+      </div>
+      <div>
+        <p>Weight:</p>
+        <div>
+          <button type="button">+</button>
+          <input type="number" min="40" max="150" value="70">
+          <button type="button">-</button>
+        </div>
+        <p>kg</p>
+      </div>
+      <div>
+        <p>Height:</p>
+        <div>
+          <button type="button">+</button>
+          <input type="number" min="140" max="210" value="170">
+          <button type="button">-</button>
+        </div>
+        <p>cm</p>
+      </div>
+    </div>
+    <div class="result_section">
+      <div>
+        <p>Calories:</p>
+        <p>2500</p>
+        <p>Kcal</p>
+      </div>
+      <div>
+        <p>Protein:</p>
+        <p>100</p>
+        <p>gr</p>
+      </div>
+      <div>
+        <p>Fat:</p>
+        <p>100</p>
+        <p>gr</p>
+      </div>
+      <div>
+        <p>Carbohydrates:</p>
+        <p>100</p>
+        <p>gr</p>
+      </div>
+    </div>
   </main>
+  <footer>
+    <p>Developed by Ivan Zotov</p>
+  </footer>
 </body>
+
 </html>
