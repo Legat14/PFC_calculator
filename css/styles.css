@@ -93,13 +93,61 @@ select {
 }
 
 header {
-  max-width: 250px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   justify-content: center;
 }
 
+h1 {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+#calculation_div {
+  max-width: 700px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#scroller_section {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .scroller_text {
   display: flex;
+}
+
+.add_space_before {
+  margin-left: 10px;
+}
+
+#number_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.number_elements {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.counter_window {
+  display: flex;
+  flex-direction: column;
+}
+
+#result_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.result_elements {
+  display: flex;
+  justify-content: flex-end;
 }

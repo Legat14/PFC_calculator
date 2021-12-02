@@ -14,79 +14,81 @@
     <header>
       <h1>PFC Claculator</h1>
     </header>
-    <div class="scroller_section">
-      <div>
-        <div class="scroller_text">
-          <p>Gender:</p>
-          <p>Male</p>
-        </div>
-        <input type="range" min="0" max="1" step="1" value="0">
-      </div>
-      <div>
-        <div class="scroller_text">
-          <p>Physical activity:</p>
-          <p>None</p>
-        </div>
-        <input type="range" min="0" max="4" step="1" value="0">
-      </div>
-      <div>
-        <div class="scroller_text">
-          <p>Goal:</p>
-          <p>Keep shape</p>
-        </div>
-        <input type="range" min="0" max="4" step="1" value="2">
-      </div>
-    </div>
-    <div class="number_section">
-      <div>
-        <p>Age:</p>
+    <div id="calculation_div">
+      <section id="scroller_section">
         <div>
-          <button type="button">+</button>
-          <input type="number" min="15" max="80" value="20">
-          <button type="button">-</button>
+          <div class="scroller_text">
+            <p>Gender:</p>
+            <p class="add_space_before">Male</p>
+          </div>
+          <input type="range" min="0" max="1" step="1" value="0">
         </div>
-        <p>y. o.</p>
-      </div>
-      <div>
-        <p>Weight:</p>
         <div>
-          <button type="button">+</button>
-          <input type="number" min="40" max="150" value="70">
-          <button type="button">-</button>
+          <div class="scroller_text">
+            <p>Physical activity:</p>
+            <p class="add_space_before">None</p>
+          </div>
+          <input type="range" min="0" max="4" step="1" value="0">
         </div>
-        <p>kg</p>
-      </div>
-      <div>
-        <p>Height:</p>
         <div>
-          <button type="button">+</button>
-          <input type="number" min="140" max="210" value="170">
-          <button type="button">-</button>
+          <div class="scroller_text">
+            <p>Goal:</p>
+            <p class="add_space_before">Keep shape</p>
+          </div>
+          <input type="range" min="0" max="4" step="1" value="2">
         </div>
-        <p>cm</p>
-      </div>
-    </div>
-    <div class="result_section">
-      <div>
-        <p>Calories:</p>
-        <p>2500</p>
-        <p>Kcal</p>
-      </div>
-      <div>
-        <p>Protein:</p>
-        <p>100</p>
-        <p>gr</p>
-      </div>
-      <div>
-        <p>Fat:</p>
-        <p>100</p>
-        <p>gr</p>
-      </div>
-      <div>
-        <p>Carbohydrates:</p>
-        <p>100</p>
-        <p>gr</p>
-      </div>
+      </section>
+      <section id="number_section">
+        <div class="number_elements">
+          <p>Age:</p>
+          <div class="add_space_before counter_window">
+            <button type="button">+</button>
+            <input type="number" min="15" max="80" value="20">
+            <button type="button">-</button>
+          </div>
+          <p class="add_space_before">y. o.</p>
+        </div>
+        <div class="number_elements">
+          <p>Weight:</p>
+          <div class="add_space_before counter_window">
+            <button type="button">+</button>
+            <input type="number" min="40" max="150" value="70">
+            <button type="button">-</button>
+          </div>
+          <p class="add_space_before">kg</p>
+        </div>
+        <div class="number_elements">
+          <p>Height:</p>
+          <div class="add_space_before counter_window">
+            <button type="button">+</button>
+            <input type="number" min="140" max="210" value="170">
+            <button type="button">-</button>
+          </div>
+          <p class="add_space_before">cm</p>
+        </div>
+      </section>
+      <section id="result_section">
+        <div class="result_elements">
+          <p>Calories:</p>
+          <p class="add_space_before">2500</p>
+          <p class="add_space_before">Kcal</p>
+        </div>
+        <div class="result_elements">
+          <p>Protein:</p>
+          <p class="add_space_before">100</p>
+          <p class="add_space_before">gr</p>
+        </div>
+        <div class="result_elements">
+          <p>Fat:</p>
+          <p class="add_space_before">100</p>
+          <p class="add_space_before">gr</p>
+        </div>
+        <div class="result_elements">
+          <p>Carbohydrates:</p>
+          <p class="add_space_before">100</p>
+          <p class="add_space_before">gr</p>
+        </div>
+      </section>
     </div>
   </main>
   <footer>
