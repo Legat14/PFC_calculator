@@ -81,8 +81,13 @@ select {
 
 /* ------ Stylize start ------ */
 
+* {
+  font-family: 'Play', sans-serif;
+  font-size: 25px;
+}
+
 #calc {
-  width: 1000px;
+  width: 1300px;
   height: 500px;
   margin: auto;
   margin-top: 100px;
@@ -102,10 +107,13 @@ header {
 h1 {
   margin-top: 20px;
   margin-bottom: 30px;
+  font-size: 35px;
+  font-weight: 700;
 }
 
 #calculation_div {
-  max-width: 700px;
+  max-width: 900px;
+  min-height: 350px;
   display: flex;
   justify-content: space-between;
 }
@@ -122,7 +130,7 @@ h1 {
 }
 
 .add_space_before {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 #number_section {
@@ -134,11 +142,21 @@ h1 {
 .number_elements {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .counter_window {
+  width: 72px;
   display: flex;
   flex-direction: column;
+}
+
+.button {
+  height: 20px;
+}
+
+.measure_unit {
+  width: 50px;
 }
 
 #result_section {
@@ -150,4 +168,11 @@ h1 {
 .result_elements {
   display: flex;
   justify-content: flex-end;
+}
+
+footer {
+  max-width: 1300px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
