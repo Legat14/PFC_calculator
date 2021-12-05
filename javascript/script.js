@@ -1,31 +1,54 @@
 'use strict';
 
-// Getting elements and values
+// Getting elements
 
-const elementGenderSlider = document.getElementById('gender_slider');
-const elementPhysicalActivitySlider = document.getElementById('physical_activity_slider');
-const elementGoalSlider = document.getElementById('goal_slider');
-const elementAgeNumber = document.getElementById('age_number');
-const elementWeightNumber = document.getElementById('weight_number');
-const elementHeightNumber = document.getElementById('height_number');
+const elementGenderSlider = document.getElementById('gender_slider'),
+elementPhysicalActivitySlider = document.getElementById('physical_activity_slider'),
+elementGoalSlider = document.getElementById('goal_slider'),
+elementAgeNumber = document.getElementById('age_number'),
+elementWeightNumber = document.getElementById('weight_number'),
+elementHeightNumber = document.getElementById('height_number'),
+elementCaloriesResult = document.getElementById('calories_result'),
+elementProteinsResult = document.getElementById('proteins_result'),
+elementFatResult = document.getElementById('fat_result'),
+elementCarbohydratesResult = document.getElementById('carbohydrates_result');
 
-let gender = elementGenderSlider.value;
-let physicalActivity = elementPhysicalActivitySlider.value;
-let goal = elementGoalSlider.value;
-let age = elementAgeNumber.value;
-let weight = elementWeightNumber.value;
-let height = elementHeightNumber.value;
+// Getting buttons
+
+const buttonAgePlus = document.getElementById('button_age+'),
+buttonAgeMinus = document.getElementById('button_age-'),
+buttonWeightPlus = document.getElementById('button_weight+'),
+buttonWeightMinus = document.getElementById('button_weight-'),
+buttonHeightPlus = document.getElementById('button_height+'),
+buttonHeightMinus = document.getElementById('button_height-');
 
 // declarate vars
 
 let calories,
 proteins,
 fat,
-carbohydrates
+carbohydrates,
+gender,
+physicalActivity,
+goal,
+age,
+weight,
+height;
+
+function getInputedValues() {
+  gender = elementGenderSlider.value;
+  physicalActivity = elementPhysicalActivitySlider.value;
+  goal = elementGoalSlider.value;
+  age = elementAgeNumber.value;
+  weight = elementWeightNumber.value;
+  height = elementHeightNumber.value;
+}
+
+getInputedValues();
 
 // Result calculation
 
-function calculateCalories(gender, physicalActivity, goal, age, weight, height) { // формула не закончена - нужно учесть физ. активность и цель
+function calculateCalories() {
   let genderCoefficient;
   if (gender == 0) {
     genderCoefficient = 5;
@@ -74,7 +97,7 @@ function calculateCalories(gender, physicalActivity, goal, age, weight, height) 
   return calories;
 }
 
-function calculateProteins(gender, goal, calories) {
+function calculateProteins() {
   let proteinsParts,
     totalParts;
   if (goal == 0 || goal == 1) {
@@ -103,7 +126,7 @@ proteins = Math.round((calories / totalParts) * proteinsParts / 4);
 return proteins;
 }
 
-function calculateFat(gender, goal, calories) {
+function calculateFat() {
   let fatParts,
     totalParts;
   if (goal == 0 || goal == 1) {
@@ -132,7 +155,7 @@ fat = Math.round((calories / totalParts) * fatParts / 9);
 return fat;
 }
 
-function calculateCarbohydrates(gender, goal, calories) {
+function calculateCarbohydrates() {
   let carbohydratesParts,
     totalParts;
   if (goal == 0 || goal == 1) {
@@ -161,20 +184,79 @@ carbohydrates = Math.round((calories / totalParts) * carbohydratesParts / 4);
 return carbohydrates;
 }
 
-  calculateCalories(gender, physicalActivity, goal, age, weight, height);
-  calculateProteins(gender, goal, calories);
-  calculateFat(gender, goal, calories);
-  calculateCarbohydrates(gender, goal, calories);
+// Buttons functions
 
-  // Checking vars
+  function increaseAge() {
+    age++;
+    elementAgeNumber.value = age;
+    refreshAllElementValues();
+  }
 
-  console.log(elementGenderSlider, '-', gender);
-  console.log(elementPhysicalActivitySlider, '-', physicalActivity);
-  console.log(elementGoalSlider, '-', goal);
-  console.log(elementAgeNumber, '-', age);
-  console.log(elementWeightNumber, '-', weight);
-  console.log(elementHeightNumber, '-', height);
-  console.log(calories + ' Kсal');
-  console.log(proteins + ' gr');
-  console.log(fat + ' gr');
-  console.log(carbohydrates + ' gr');
+  function decreaseAge() {
+    age--;
+    elementAgeNumber.value = age;
+    refreshAllElementValues();
+  }
+
+  function increaseWeight() {
+    weight++;
+    elementWeightNumber.value = weight;
+    refreshAllElementValues();
+  }
+
+  function decreaseWeight() {
+    weight--;
+    elementWeightNumber.value = weight;
+    refreshAllElementValues();
+  }
+
+  function increaseHeight() {
+    height++;
+    elementHeightNumber.value = height;
+    refreshAllElementValues();
+  }
+
+  function decreaseHeight() {
+    height--;
+    elementHeightNumber.value = height;
+    refreshAllElementValues();
+  }
+
+// Main functions
+
+  function calculateAllElementValues() {
+    calculateCalories();
+    calculateProteins();
+    calculateFat();
+    calculateCarbohydrates();
+  }
+
+  function outputAllElementValues() {
+    elementCaloriesResult.innerHTML = calories;
+    elementProteinsResult.innerHTML = proteins;
+    elementFatResult.innerHTML = fat;
+    elementCarbohydratesResult.innerHTML = carbohydrates;
+  }
+
+  function refreshAllElementValues() {
+    getInputedValues();
+    calculateAllElementValues();
+    outputAllElementValues();
+  }
+
+  refreshAllElementValues();
+
+  // Event listeners
+
+  elementGenderSlider.addEventListener('input', refreshAllElementValues);
+  elementPhysicalActivitySlider.addEventListener('input', refreshAllElementValues);
+  elementGoalSlider.addEventListener('input', refreshAllElementValues);
+  elementAgeNumber.addEventListener('input', refreshAllElementValues);
+  elementWeightNumber.addEventListener('input', refreshAllElementValues);
+  elementHeightNumber.addEventListener('input', refreshAllElementValues);
+  buttonAgePlus.addEventListener('click', increaseAge);
+  buttonAgeMinus.addEventListener('click', decreaseAge);
+  buttonWeightPlus.addEventListener('click', increaseWeight);
+  buttonWeightMinus.addEventListener('click', decreaseWeight);
+  buttonHeightPlus.addEventListener('click', increaseHeight);
+  buttonHeightMinus.addEventListener('click', decreaseHeight);
