@@ -151,6 +151,11 @@ h1 {
   flex-direction: column;
 }
 
+input[type="number"] {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -167,6 +172,9 @@ input[type="number"]:focus {
 
 .button {
   height: 20px;
+  padding: 0px;
+  background: none;
+  border-style: none;
 }
 
 .measure_unit {
