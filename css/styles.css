@@ -177,6 +177,10 @@ input[type="number"]:focus {
   border-style: none;
 }
 
+.button img:active {
+  transform: scale(0.9);
+}
+
 .measure_unit {
   width: 50px;
 }

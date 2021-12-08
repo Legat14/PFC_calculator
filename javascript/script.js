@@ -3,37 +3,40 @@
 // Getting elements
 
 const elementGenderSlider = document.getElementById('gender_slider'),
-elementPhysicalActivitySlider = document.getElementById('physical_activity_slider'),
-elementGoalSlider = document.getElementById('goal_slider'),
-elementAgeNumber = document.getElementById('age_number'),
-elementWeightNumber = document.getElementById('weight_number'),
-elementHeightNumber = document.getElementById('height_number'),
-elementCaloriesResult = document.getElementById('calories_result'),
-elementProteinsResult = document.getElementById('proteins_result'),
-elementFatResult = document.getElementById('fat_result'),
-elementCarbohydratesResult = document.getElementById('carbohydrates_result');
+  elementPhysicalActivitySlider = document.getElementById('physical_activity_slider'),
+  elementGoalSlider = document.getElementById('goal_slider'),
+  elementAgeNumber = document.getElementById('age_number'),
+  elementWeightNumber = document.getElementById('weight_number'),
+  elementHeightNumber = document.getElementById('height_number'),
+  elementCaloriesResult = document.getElementById('calories_result'),
+  elementProteinsResult = document.getElementById('proteins_result'),
+  elementFatResult = document.getElementById('fat_result'),
+  elementCarbohydratesResult = document.getElementById('carbohydrates_result'),
+  elementGenderValue = document.getElementById('gender_value'),
+  elementPhylicalActivityValue = document.getElementById('physical_activity_value'),
+  elementGoalValue = document.getElementById('goal_value');
 
 // Getting buttons
 
 const buttonAgePlus = document.getElementById('button_age+'),
-buttonAgeMinus = document.getElementById('button_age-'),
-buttonWeightPlus = document.getElementById('button_weight+'),
-buttonWeightMinus = document.getElementById('button_weight-'),
-buttonHeightPlus = document.getElementById('button_height+'),
-buttonHeightMinus = document.getElementById('button_height-');
+  buttonAgeMinus = document.getElementById('button_age-'),
+  buttonWeightPlus = document.getElementById('button_weight+'),
+  buttonWeightMinus = document.getElementById('button_weight-'),
+  buttonHeightPlus = document.getElementById('button_height+'),
+  buttonHeightMinus = document.getElementById('button_height-');
 
 // declarate vars
 
 let calories,
-proteins,
-fat,
-carbohydrates,
-gender,
-physicalActivity,
-goal,
-age,
-weight,
-height;
+  proteins,
+  fat,
+  carbohydrates,
+  gender,
+  physicalActivity,
+  goal,
+  age,
+  weight,
+  height;
 
 function getInputedValues() {
   gender = elementGenderSlider.value;
@@ -122,8 +125,8 @@ function calculateProteins() {
       }
     }
   }
-proteins = Math.round((calories / totalParts) * proteinsParts / 4);
-return proteins;
+  proteins = Math.round((calories / totalParts) * proteinsParts / 4);
+  return proteins;
 }
 
 function calculateFat() {
@@ -151,8 +154,8 @@ function calculateFat() {
       }
     }
   }
-fat = Math.round((calories / totalParts) * fatParts / 9);
-return fat;
+  fat = Math.round((calories / totalParts) * fatParts / 9);
+  return fat;
 }
 
 function calculateCarbohydrates() {
@@ -180,83 +183,131 @@ function calculateCarbohydrates() {
       }
     }
   }
-carbohydrates = Math.round((calories / totalParts) * carbohydratesParts / 4);
-return carbohydrates;
+  carbohydrates = Math.round((calories / totalParts) * carbohydratesParts / 4);
+  return carbohydrates;
 }
 
 // Buttons functions
 
-  function increaseAge() {
-    age++;
-    elementAgeNumber.value = age;
-    refreshAllElementValues();
-  }
+function increaseAge() {
+  age++;
+  elementAgeNumber.value = age;
+  refreshAllElementValues();
+}
 
-  function decreaseAge() {
-    age--;
-    elementAgeNumber.value = age;
-    refreshAllElementValues();
-  }
+function decreaseAge() {
+  age--;
+  elementAgeNumber.value = age;
+  refreshAllElementValues();
+}
 
-  function increaseWeight() {
-    weight++;
-    elementWeightNumber.value = weight;
-    refreshAllElementValues();
-  }
+function increaseWeight() {
+  weight++;
+  elementWeightNumber.value = weight;
+  refreshAllElementValues();
+}
 
-  function decreaseWeight() {
-    weight--;
-    elementWeightNumber.value = weight;
-    refreshAllElementValues();
-  }
+function decreaseWeight() {
+  weight--;
+  elementWeightNumber.value = weight;
+  refreshAllElementValues();
+}
 
-  function increaseHeight() {
-    height++;
-    elementHeightNumber.value = height;
-    refreshAllElementValues();
-  }
+function increaseHeight() {
+  height++;
+  elementHeightNumber.value = height;
+  refreshAllElementValues();
+}
 
-  function decreaseHeight() {
-    height--;
-    elementHeightNumber.value = height;
-    refreshAllElementValues();
+function decreaseHeight() {
+  height--;
+  elementHeightNumber.value = height;
+  refreshAllElementValues();
+}
+
+// Slider values
+
+function changeGenderValue() {
+  if (gender == 0) {
+    elementGenderValue.innerHTML = 'Male';
+  } else {
+    elementGenderValue.innerHTML = 'Female';
   }
+}
+
+function changePhysicalActivityValue() {
+  if (physicalActivity == 0) {
+    elementPhylicalActivityValue.innerHTML = 'None';
+  } else {
+    if (physicalActivity == 1) {
+      elementPhylicalActivityValue.innerHTML = 'Low';
+    } else {
+      if (physicalActivity == 2) {
+        elementPhylicalActivityValue.innerHTML = 'Average';
+      } else {
+        if (physicalActivity == 3) {
+          elementPhylicalActivityValue.innerHTML = 'High';
+        } else {
+          elementPhylicalActivityValue.innerHTML = 'Very high';
+        }
+      }
+    }
+  }
+}
+
+function changeGoalValue() {
+  if (goal == 0) {
+    elementGoalValue.innerHTML = 'Lose weight fast';
+  } else {
+    if (goal == 1) {
+      elementGoalValue.innerHTML = 'Lose weight slowly';
+    } else {
+      if (goal == 2) {
+        elementGoalValue.innerHTML = 'Keep shape';
+      } else {
+        if (goal == 3) {
+          elementGoalValue.innerHTML = 'Gain mass slowly';
+        } else {
+          elementGoalValue.innerHTML = 'Gain mass fast';
+        }
+      }
+    }
+  }
+}
 
 // Main functions
 
-  function calculateAllElementValues() {
-    calculateCalories();
-    calculateProteins();
-    calculateFat();
-    calculateCarbohydrates();
-  }
+function calculateAllElementValues() {
+  calculateCalories();
+  calculateProteins();
+  calculateFat();
+  calculateCarbohydrates();
+  changePhysicalActivityValue();
+  changeGoalValue();
+}
 
-  function outputAllElementValues() {
-    elementCaloriesResult.innerHTML = calories;
-    elementProteinsResult.innerHTML = proteins;
-    elementFatResult.innerHTML = fat;
-    elementCarbohydratesResult.innerHTML = carbohydrates;
-  }
+function outputAllElementValues() {
+  elementCaloriesResult.innerHTML = calories;
+  elementProteinsResult.innerHTML = proteins;
+  elementFatResult.innerHTML = fat;
+  elementCarbohydratesResult.innerHTML = carbohydrates;
+}
 
-  function refreshAllElementValues() {
-    getInputedValues();
-    calculateAllElementValues();
-    outputAllElementValues();
-  }
+function refreshAllElementValues() {
+  getInputedValues();
+  calculateAllElementValues();
+  outputAllElementValues();
+  changeGenderValue();
+}
 
-  refreshAllElementValues();
+refreshAllElementValues();
 
-  // Event listeners
+// Event listeners
 
-  elementGenderSlider.addEventListener('input', refreshAllElementValues);
-  elementPhysicalActivitySlider.addEventListener('input', refreshAllElementValues);
-  elementGoalSlider.addEventListener('input', refreshAllElementValues);
-  elementAgeNumber.addEventListener('input', refreshAllElementValues);
-  elementWeightNumber.addEventListener('input', refreshAllElementValues);
-  elementHeightNumber.addEventListener('input', refreshAllElementValues);
-  buttonAgePlus.addEventListener('click', increaseAge);
-  buttonAgeMinus.addEventListener('click', decreaseAge);
-  buttonWeightPlus.addEventListener('click', increaseWeight);
-  buttonWeightMinus.addEventListener('click', decreaseWeight);
-  buttonHeightPlus.addEventListener('click', increaseHeight);
-  buttonHeightMinus.addEventListener('click', decreaseHeight);
+document.addEventListener('input', refreshAllElementValues);
+buttonAgePlus.addEventListener('click', increaseAge);
+buttonAgeMinus.addEventListener('click', decreaseAge);
+buttonWeightPlus.addEventListener('click', increaseWeight);
+buttonWeightMinus.addEventListener('click', decreaseWeight);
+buttonHeightPlus.addEventListener('click', increaseHeight);
+buttonHeightMinus.addEventListener('click', decreaseHeight);
