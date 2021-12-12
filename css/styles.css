@@ -133,6 +133,36 @@ h1 {
   margin-left: 15px;
 }
 
+input[type = "range"] {
+  width: 200px;
+  height: 12px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#gender_slider {
+  width: 80px;
+}
+
+input[type = "range"]::-webkit-slider-runnable-track {
+  height: 12px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+input[type = "range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 25px;
+  height: 30px;
+  margin-top: -9px;
+  border-radius: 5px;
+  background: #d4d4d4;
+  outline: 1px solid #000000;
+  cursor: pointer;
+}
+
 #number_section {
   display: flex;
   flex-direction: column;
